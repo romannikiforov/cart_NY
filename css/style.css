@@ -7,7 +7,7 @@ body {
 }
 
 .wrap {
-  /* visibility: hidden; */
+  visibility: hidden;
   width: 100%;
   margin-inline: auto;
   position: relative;
@@ -52,6 +52,7 @@ body {
 }
 
 .wrap-opencart {
+  visibility: hidden;
   max-width: 1400px;
   margin-inline: auto;
   position: relative;
