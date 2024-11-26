@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  max-width: 1400px;
+  width: 100%;
+  margin-inline: auto;
+  position: relative;
+  padding-inline: 1rem;
+}
+
+.front {
+  min-height: 100vh;
+  margin-inline: auto;
+  padding-top: 1rem;
+}
+.front-svg {
+  min-height: 500px;
+}
+.button {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  top: calc(50% + 160px);
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.button a {
+  width: 30px;
+  height: 40px;
+  display: inline-block;
+}
+.kugel-rotate .snow-ball {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: snowball 2s linear infinite;
+}
+@keyframes snowball {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.wrap-opencart {
+  max-width: 1400px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.back {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: center;
+}
+.back__left {
+  align-self: top;
+}
+
+@media screen and (min-width: 740px) {
+  .front {
+    max-width: 740px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+}
