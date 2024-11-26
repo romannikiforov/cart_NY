@@ -7,8 +7,7 @@ body {
 }
 
 .wrap {
-  visibility: hidden;
-  max-width: 1400px;
+  /* visibility: hidden; */
   width: 100%;
   margin-inline: auto;
   position: relative;
@@ -17,20 +16,21 @@ body {
 
 .front {
   min-height: 100vh;
-  margin-inline: auto;
   padding-top: 1rem;
+  position: relative;
 }
-.front-svg {
-  min-height: 500px;
+.front-wrap {
+  position: relative;
 }
+
 .button {
   position: absolute;
-  width: 30px;
-  height: 40px;
-  top: calc(50% + 160px);
-  cursor: pointer;
   left: 50%;
   transform: translateX(-50%);
+  width: 30px;
+  height: 40px;
+  bottom: 0;
+  cursor: pointer;
 }
 .button a {
   width: 30px;
@@ -71,6 +71,7 @@ body {
 @media screen and (min-width: 740px) {
   .front {
     max-width: 740px;
+    margin-inline: auto;
     padding: 0;
     display: flex;
     align-items: center;

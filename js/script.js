@@ -1,5 +1,7 @@
 const kugel = document.querySelector(".kugel");
 const front = document.getElementById("front");
+const button = document.getElementById("button");
+const frontSvg = document.querySelector(".front-svg");
 
 const tl = gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
 
@@ -40,4 +42,14 @@ window.addEventListener("load", function () {
   init();
 });
 
-// GSDevTools.create();
+function setTopButton() {
+  const topFront = frontSvg.getBoundingClientRect();
+  console.log(topFront.width);
+  button.style.top =
+    topFront.height + topFront.top - (topFront.width <= 500 ? 0 : 50) + "px";
+}
+setTopButton();
+
+window.addEventListener("resize", function () {
+  setTopButton();
+});
