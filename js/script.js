@@ -3,6 +3,8 @@ const front = document.getElementById("front");
 const button = document.getElementById("button");
 const frontSvg = document.querySelector(".front-svg");
 
+// gsap.registerPlugin(DrawSVGPlugin);
+
 const tl = gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
 
 function init() {
@@ -28,7 +30,7 @@ function init() {
         }, 300);
       },
     })
-    .from("#text_1 > path", { duration: 0.3, drawSVG: "100%", stagger: 0.04 })
+    .from("#text_1 > path", { duration: 0.3, drawSVG: true, stagger: 0.04 })
     .from(
       "#text_2 > path",
       { duration: 0.44, drawSVG: "100%", stagger: 0.04 },
@@ -44,7 +46,6 @@ window.addEventListener("load", function () {
 
 function setTopButton() {
   const topFront = frontSvg.getBoundingClientRect();
-  console.log(topFront.width);
   button.style.top =
     topFront.height + topFront.top - (topFront.width <= 500 ? 0 : 50) + "px";
 }
