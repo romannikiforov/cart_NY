@@ -30,12 +30,8 @@ function init() {
         }, 300);
       },
     })
-    .from("#text_1 > path", { duration: 0.3, drawSVG: true, stagger: 0.04 })
-    .from(
-      "#text_2 > path",
-      { duration: 0.44, drawSVG: "100%", stagger: 0.04 },
-      "-=0.3"
-    )
+    .from("#text_1 > path", { duration: 0.3, stagger: 0.04 })
+    .from("#text_2 > path", { duration: 0.44, stagger: 0.04 }, "-=0.3")
     .from("#text_3", { duration: 0.1 })
     .from("#button", { duration: 0.1 }, "<");
 }

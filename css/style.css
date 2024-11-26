@@ -37,6 +37,10 @@ body {
   height: 40px;
   display: inline-block;
 }
+.button-2 {
+  text-align: center;
+  padding-top: 30px;
+}
 .kugel-rotate .snow-ball {
   transform-origin: 50% 50%;
   transform-box: fill-box;
