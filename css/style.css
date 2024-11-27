@@ -1,50 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
-  padding: 0;
+  font-family: "Roboto Flex", sans-serif;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
 }
 
 .wrap {
-  visibility: hidden;
-  width: 100%;
+  max-width: 1440px;
   margin-inline: auto;
-  position: relative;
   padding-inline: 1rem;
-}
-
-.front {
-  min-height: 100vh;
   padding-top: 1rem;
-  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
-.front-wrap {
-  position: relative;
+.hide {
+  display: none !important;
+}
+.first {
+  visibility: hidden;
+}
+.frohe {
+  margin-bottom: 2rem;
+}
+.balls {
+  text-align: center;
+}
+.balls svg {
+  height: 400px;
+}
+.orbis-1 {
+  text-align: right;
+}
+.orbis-1 svg {
+  width: 100px;
 }
 
-.button {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 40px;
-  bottom: 0;
-  cursor: pointer;
-}
-.button a {
-  width: 30px;
-  height: 40px;
-  display: inline-block;
-}
-.button-2 {
-  text-align: center;
-  padding-top: 30px;
-}
-.kugel-rotate .snow-ball {
+.snow-ball {
   transform-origin: 50% 50%;
   transform-box: fill-box;
-  animation: snowball 2s linear infinite;
+  animation: snowball 4s linear infinite;
 }
 @keyframes snowball {
   0% {
@@ -55,33 +65,111 @@ body {
   }
 }
 
-.wrap-opencart {
-  visibility: hidden;
-  max-width: 1400px;
+/* ================= first */
+
+.first {
+  max-width: 720px;
   margin-inline: auto;
+}
+
+.frohe-top {
+  width: 50%;
+  margin-left: auto;
+}
+.frohe-bottom {
+  width: 80%;
+  margin-left: auto;
+}
+.button {
+  text-align: center;
+  margin-top: 20px;
+}
+.button a {
+  width: 30px;
+  height: 40px;
+  display: inline-block;
+}
+/* ================= second */
+.wrap-second {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-top: 1rem;
+}
+.second {
+  visibility: hidden;
+}
+.second-left {
+  display: none;
+}
+.text-second-page {
+  margin-inline: 9%;
+  text-align: center;
   position: relative;
+  top: -20px;
+}
+.orbis-second-page {
+  margin-top: 20px;
+  width: 100px;
+  margin-left: auto;
 }
 
-.back {
-  min-height: 100vh;
-}
-.back__left {
-  align-self: top;
-  margin-bottom: 50px;
-}
+/* ================= third */
+/* ================= fourth */
 
-@media screen and (min-width: 740px) {
-  .front {
-    max-width: 740px;
-    margin-inline: auto;
-    padding: 0;
+@media (min-width: 740px) {
+  .wrap {
+    padding-top: 0;
+  }
+  .first {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .frohe {
+    margin-bottom: 0;
+  }
+  .orbis-1 {
+    grid-column: 2;
+  }
+  .frohe-top {
+    width: 50%;
+    margin-left: auto;
+    margin-right: 50px;
+  }
+  .frohe-bottom {
+    width: 80%;
+    margin-left: auto;
+  }
+  /* ================= second */
+  .wrap-second {
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    padding-top: 0;
   }
-  .back {
+  .second {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .second-left {
+    display: initial;
+    padding-top: 200px;
+  }
+  .text-second-wrap {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+  }
+  .liebe {
+    width: 100px;
+    margin-inline: auto;
+  }
+  .kunden {
+    width: 400px;
+  }
+  .orbis-second-page {
+    margin-bottom: 20px;
   }
 }

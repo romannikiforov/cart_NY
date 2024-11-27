@@ -1,52 +1,51 @@
-const kugel = document.querySelector(".kugel");
-const front = document.getElementById("front");
-const button = document.getElementById("button");
-const frontSvg = document.querySelector(".front-svg");
-
-// gsap.registerPlugin(DrawSVGPlugin);
+const froheBlock = document.querySelector("#frohe-block");
+const buttonOpen = document.getElementById("button");
+const firstPage = document.getElementById("first-page");
 
 const tl = gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
+const tl2 = gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
 
 function init() {
-  tl.from("#wrap", { ease: "linear", autoAlpha: 0 })
-    .from("#dotts > g", {
-      stagger: 0.1,
-    })
-    .from("#circles_right > g", { stagger: 0.1 }, "<")
-    .from("#schnee > g", {
-      x: -300,
-      duration: 0.6,
-      stagger: 0.2,
-      ease: "power.in",
-    })
-    .from("#kugel > g", {
+  const isMobile = window.outerWidth < 740;
+  if (isMobile) {
+    gsap.set("#frohe-block", { height: 0 });
+  }
+  tl.from("#first-page", { ease: "linear", autoAlpha: 0 })
+    .from("#snow_1 > *", { stagger: 0.02 })
+    .from("#right-circle > *", { stagger: 0.05 }, "<")
+    .from("#snow_2 > g", { x: -150, stagger: 0.05 }, "-=1")
+    .from("#right-balls > g", {
       y: -220,
       duration: 0.7,
       stagger: { each: 0.1, from: "edges" },
       ease: "bounce",
       onComplete: function () {
-        setTimeout(() => {
-          kugel.classList.add("kugel-rotate");
-        }, 300);
+        if (isMobile) {
+          gsap.to("#frohe-block", {
+            height: "auto",
+            opacity: 1,
+            duration: 0.3,
+          });
+        }
       },
     })
-    .from("#text_1 > path", { duration: 0.3, stagger: 0.04 })
-    .from("#text_2 > path", { duration: 0.44, stagger: 0.04 }, "-=0.3")
-    .from("#text_3", { duration: 0.1 })
-    .from("#button", { duration: 0.1 }, "<");
+
+    .from("#frohe-top > path", { duration: 0.3, stagger: 0.04 })
+    .from("#frohe-bottom > path", { duration: 0.44, stagger: 0.04 }, "-=0.3")
+    .from("#orbis-bottom-1 > path", { stagger: 0.04 })
+    .from(buttonOpen, { duration: 0.4 }, "<");
 }
+
+function initSecondPage() {
+  firstPage.classList.add("hide");
+  tl2
+    .from("#second-left", { scale: 0 })
+    .from("#second-right", { scale: 0 }, "<");
+}
+
+buttonOpen.addEventListener("click", initSecondPage);
 
 window.addEventListener("load", function () {
   init();
 });
-
-function setTopButton() {
-  const topFront = frontSvg.getBoundingClientRect();
-  button.style.top =
-    topFront.height + topFront.top - (topFront.width <= 500 ? 0 : 50) + "px";
-}
-setTopButton();
-
-window.addEventListener("resize", function () {
-  setTopButton();
-});
+// GSDevTools.create();
