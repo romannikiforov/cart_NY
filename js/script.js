@@ -48,4 +48,3 @@ buttonOpen.addEventListener("click", initSecondPage);
 window.addEventListener("load", function () {
   init();
 });
-// GSDevTools.create();

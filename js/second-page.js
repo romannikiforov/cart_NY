@@ -14,4 +14,3 @@ function initOpencart() {
 window.addEventListener("load", function () {
   initOpencart();
 });
-//GSDevTools.create();
